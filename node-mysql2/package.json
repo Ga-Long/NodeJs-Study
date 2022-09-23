@@ -1,0 +1,11 @@
+{
+  "name": "mysql2",
+  "version": "1.0.0",
+  "description": "do mysql",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "author": "gh",
+  "license": "ISC"
+}

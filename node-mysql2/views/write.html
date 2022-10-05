@@ -13,29 +13,30 @@
     <h2><a href="/">Main Page</a></h2>
     <hr>
 
-    <form method = "post" action="/board" id="write-form">
+    <form method = "post" action="/board" name="write-form">
         <fieldset>
             <legend>게시판 등록</legend>
             <div>
-                <select id ="divison">
-                    <option value="공지사항">공지사항</option>
+                <!-- <select name ="divison">
+                    <option value="공지사항" selected>공지사항</option>
                     <option value="취업 및 연수">취업 및 연수</option>
-                </select>
+                </select> -->
+                <input name="division" type="text" placeholder="구분"></div>
             </div>
-            <div><input id="title" type="text" placeholder="제목"></div>
-            <div><input id="content" type="text" placeholder="내용"></div>
+            <div><input name="title" type="text" placeholder="제목"></div>
+            <div><input name="content" type="text" placeholder="내용"></div>
             <div>
-                <select id ="writer">
-                    <option value="행정조교">행정조교</option>
+                <select name ="writer">
+                    <option value="행정조교" selected>행정조교</option>
                     <option value="실습조교">실습조교</option>
                 </select>
             </div>
-            <div><input type="file" id = "isFile"></div>
-            <button type="submit">등록</button>
+            <div><input type="file" name = "isFile"></div>
+            <input type="submit" value="작성하기">
         </fieldset>
     </form>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="/write.js"></script>
+    
 </body>
 
 </html>

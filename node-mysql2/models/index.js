@@ -15,5 +15,4 @@ Board.init(sequelize);
 
 Board.associate(db);
 
-
 module.exports = db;

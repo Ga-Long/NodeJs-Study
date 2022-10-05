@@ -10,7 +10,8 @@
  const { sequelize } = require('./models');
  const indexRouter = require('./routes');
  const boardRouter = require('./routes/board');
- 
+ const eachPostRouter = require('./routes/eachPost');
+
  const app = express();
  app.set('port', process.env.PORT || 3001);
  app.set('view engine', 'html');
@@ -34,6 +35,7 @@
  
  app.use('/', indexRouter);
  app.use('/board',boardRouter);
+ app.use('/eachPost',eachPostRouter);
  
  app.use((req, res, next) => {
    const error =  new Error(`${req.method} ${req.url} 라우터가 없습니다.`);

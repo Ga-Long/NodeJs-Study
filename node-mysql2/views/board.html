@@ -34,7 +34,7 @@
             <tr>
                 <td>{{board.id}}</td>
                 <td>{{board.division}}</td>
-                <td>{{board.title}}</td>
+                <td><a href="/eachPost">{{board.title}}</a></td>
                 <td>{{board.writer}}</td>
                 <td>{{board.created_at}}</td>
                 <td>{{board.views}}</td>
@@ -43,7 +43,8 @@
             {% endfor %}
         </tbody>
     </table>
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/board.js"></script>
 
 </body>
 

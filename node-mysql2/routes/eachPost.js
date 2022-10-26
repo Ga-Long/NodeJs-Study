@@ -5,17 +5,17 @@ const router = express.Router();
 
 router.get('/eachPost', async (req, res, next) => { //해당 id의 content 불러오기
     try {
-    const boards = await Board.findAll({
-        where: { id: req.params.id },
-    });
-    //eachPost로 가야되는대 
-    res.render('eachPost', {boards}); 
+        const boards = await Board.findAll({
+            where: { id: req.params.id },
+        });
+        //eachPost로 가야되는대 
+        res.render('eachPost', {boards}); 
 
-    console.log(boards);
-    res.json(boards);
+        console.log(boards);
+        res.json(boards);
     } catch (err) {
-    console.error(err);
-    next(err);
+        console.error(err);
+        next(err);
     }
 });
 

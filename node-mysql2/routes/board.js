@@ -62,17 +62,17 @@ router.post('/board', async (req, res, next) => { //글 작성 후 post
 //여기서 먹힌다.
 router.get('/:id/content', async (req, res, next) => { //해당 id의 content 불러오기
     try {
-    const boards = await Board.findAll({
-        where: { id: req.params.id },
-    });
-    //eachPost로 가야되는대 
-    //res.render('eachPost', {boards}); //작성하고 게시판으로 돌아가기
+        const boards = await Board.findAll({
+            where: { id: req.params.id },
+        });
+        //eachPost로 가야되는대 
+        //res.render('eachPost', {boards}); //작성하고 게시판으로 돌아가기
 
-    console.log(boards);
-    res.json(boards);
+        console.log(boards);
+        res.json(boards);
     } catch (err) {
-    console.error(err);
-    next(err);
+        console.error(err);
+        next(err);
     }
 });
 

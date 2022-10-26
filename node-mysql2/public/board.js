@@ -1,8 +1,8 @@
 // 사용자 이름 눌렀을 때 댓글 로딩
 document.querySelectorAll("#board-list tr").forEach((el) => {
     el.addEventListener("click", function () {
-    const id = el.querySelector("td").textContent;
-    getPost(id);
+        const id = el.querySelector("td").textContent; //id 가지고
+        getPost(id);
     });
 });
 
@@ -13,29 +13,29 @@ async function getPost(id) {
     const boards = res.data;
     const tbody = document.querySelector('#eachPost_list tbody');
     tbody.innerHTML = '';
-    //console.log(boards);
+    console.log(boards);
     
     boards.map(function(board){
 
-        const eachPost = document.createElement('div');
+        const eachPost = document.createElement('tr');
 
-        let title = document.createElement('div');
+        let title = document.createElement('td');
         title.textContent = board.title;
         eachPost.appendChild(title);
 
-        let division = document.createElement('div');
+        let division = document.createElement('td');
         division.textContent = board.division;
         eachPost.appendChild(division);
 
-        let writer = document.createElement('div');
+        let writer = document.createElement('td');
         writer.textContent = board.writer;
         eachPost.appendChild(writer);
 
-        let created_at = document.createElement('div');
+        let created_at = document.createElement('td');
         created_at.textContent = board.created_at;
         eachPost.appendChild(created_at);
 
-        let content = document.createElement('div');
+        let content = document.createElement('td');
         content.textContent = board.content;
         eachPost.appendChild(content);
         

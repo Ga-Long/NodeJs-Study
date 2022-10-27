@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+</head>
+
+<body>
+    <h1>Edit Page</h1>
+    <h2><a href="/">Main Page</a></h2>
+    <hr>
+    {% for board in boards %}
+    <form method="post" action="/board/{{board.id}}" name="Edit-form">
+        <fieldset>
+            <legend>게시판 수정</legend>
+            <div>
+                <!-- <select name ="divison">
+                    <option value="공지사항" selected>공지사항</option>
+                    <option value="취업 및 연수">취업 및 연수</option>
+                </select> -->
+                <input name="division" type="text" placeholder="구분" value = "{{board.division}}"></div>
+            </div>
+            <div><input name="title" type="text" placeholder="제목" value = "{{board.title}}"></div>
+            <div><input name="content" type="text" placeholder="내용" value = "{{board.content}}"></div>
+            <div>
+                <select name ="writer">
+                    <option value="행정조교" selected>행정조교</option>
+                    <option value="실습조교">실습조교</option>
+                </select>
+            </div>
+            <div><input type="file" name = "isFile"></div>
+            <input type="submit" value="수정하기">
+        </fieldset>
+    </form>
+    {% endfor %}
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
+</body>
+
+</html>

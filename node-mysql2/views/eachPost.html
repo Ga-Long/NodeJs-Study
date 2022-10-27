@@ -24,15 +24,15 @@
                 <div class="post-info card m-2 p-2"> 
                     <div><span>Division</span> : <span >{{board.division}}</span></div> 
                     <div><span>Writer</span> : <span >{{board.writer}}</span></div> 
-                    <div><span>Created</span> : <span data-date-time="{{board.created_at}}"></span></div> <!-- 2 -->
+                    <div><span>Created</span> : <span>{{board.created_at}}</span></div> <!-- 2 -->
                     <div><span>Views</span> : <span >{{board.views}}</span></div> 
                     <div><span>isFile</span> : <span >{{board.isFile}}</span></div> 
                 </div>
             </div>
         </div>
     </div>
+    <a href="/board/{{board.id}}/edit">Edit</a>
     {% endfor %}
-    
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="/board.js"></script>
 </body>

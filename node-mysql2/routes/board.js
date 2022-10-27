@@ -1,10 +1,10 @@
 const express = require('express');
 const Board = require('../models/board');
-//const Comment = require('../models/comment');
+
 
 const router = express.Router();
 
-
+//board
 router.get('/board', async (req, res, next) => { // /board 진입했을 때
     try {
     const board = await Board.findAll(); //board 데이터를 가져오고
@@ -59,19 +59,14 @@ router.post('/board', async (req, res, next) => { //글 작성 후 post
     }
 });    
 
-//write
 
-
-//여기서 먹힌다.
+//해당 content 보기 
 router.get('/:id/content', async (req, res, next) => { //해당 id의 content 불러오기
     try {
         const boards = await Board.findAll({
             where: { id: req.params.id },
         });
-        //eachPost로 가야되는대 
-        //res.render('eachPost', {boards}); //작성하고 게시판으로 돌아가기
-
-        console.log(boards);
+        
         res.json(boards);
     } catch (err) {
         console.error(err);
@@ -85,16 +80,50 @@ router.get('/:id', async (req, res, next) => { //해당 id의 content 불러오�
         const boards = await Board.findAll({
             where: { id: req.params.id },
         });
-        //eachPost로 가야되는대 
-        //res.render('eachPost', {boards}); //작성하고 게시판으로 돌아가기
 
-        res.render('eachPost',{boards}) //???
+        res.render('eachPost',{boards}) //해당 데이터를 each.html를 렌더링할 때 넘김
         
     } catch (err) {
         console.error(err);
         next(err);
     }
 });
+
+//edit
+router.get('/:id/edit', async (req, res, next) => { //해당 id의 content 불러오기
+    try {
+        const boards = await Board.findAll({
+            where: { id: req.params.id },
+        });
+
+        res.render('edit',{boards}) //해당 데이터를 each.html를 렌더링할 때 넘김
+        
+    } catch (err) {
+        console.error(err);
+        next(err);
+    }
+});
+
+//update
+router.post('/:id', async (req, res, next) => { //해당 id의 content 불러오기
+    try { 
+        const boards = await Board.update({
+            division: req.body.division,
+            title: req.body.title,
+            content: req.body.content,
+            writer: req.body.writer,
+        }, {
+            where: { id: req.params.id },
+        });
+        
+        res.redirect("/board/"+req.params.id) //해당 데이터를 each.html를 렌더링할 때 넘김
+    } catch (err) {
+        console.error(err);
+        next(err);
+    }
+});
+
+//delete
 
 
 module.exports = router;

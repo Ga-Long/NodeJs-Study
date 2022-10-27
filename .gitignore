@@ -1,1 +1,2 @@
-node_modules/
+## 아래 폴더 무시
+node-mysql2/node_modules/

@@ -15,33 +15,7 @@ router.get('/board', async (req, res, next) => { // /board 진입했을 때
     }
 });
 
-// router.route('/write')
-//     .get(async (req, res, next) => {
-//     try {
-//         const board = await Board.findAll();
-//         res.json(board);
-//     } catch (err) {
-//         console.error(err);
-//         next(err);
-//     }
-//     })
-//     .post(async (req, res, next) => {
-//     try {
-//         const board = await Board.create({
-//         division: req.body.division,
-//         title: req.body.title,
-//         content: req.body.content,
-//         writer: req.body.writer,
-//         });
-//         console.log(board);
-//         //res.status(201).json(board);
-//         res.render('board', { board }); //작성하고 게시판으로 돌아가기
-//     } catch (err) {
-//         console.error(err);
-//         next(err);
-//     }
-//     });
-
+//write
 router.post('/board', async (req, res, next) => { //글 작성 후 post
     try {
         const board = await Board.create({
@@ -105,7 +79,7 @@ router.get('/:id/edit', async (req, res, next) => { //해당 id의 content 불�
 });
 
 //update
-router.post('/:id', async (req, res, next) => { //해당 id의 content 불러오기
+router.post('/:id/edit', async (req, res, next) => { //해당 id의 content 불러오기
     try { 
         const boards = await Board.update({
             division: req.body.division,
@@ -124,6 +98,16 @@ router.post('/:id', async (req, res, next) => { //해당 id의 content 불러오
 });
 
 //delete
-
+router.post('/:id', async (req, res, next) => { //해당 id의 content 불러오기
+    try { 
+        const boards = await Board.destroy({
+            where: { id: req.params.id },
+        });  
+        res.redirect("/board") //해당 데이터를 each.html를 렌더링할 때 넘김
+    } catch (err) {
+        console.error(err);
+        next(err);
+    }
+});
 
 module.exports = router;

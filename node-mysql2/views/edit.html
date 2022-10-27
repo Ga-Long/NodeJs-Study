@@ -13,7 +13,7 @@
     <h2><a href="/">Main Page</a></h2>
     <hr>
     {% for board in boards %}
-    <form method="post" action="/board/{{board.id}}" name="Edit-form">
+    <form method="post" action="/board/{{board.id}}/edit" name="Edit-form">
         <fieldset>
             <legend>게시판 수정</legend>
             <div>

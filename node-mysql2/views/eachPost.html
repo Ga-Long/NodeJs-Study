@@ -32,6 +32,9 @@
         </div>
     </div>
     <a href="/board/{{board.id}}/edit">Edit</a>
+    <form action="/board/{{board.id}}" method="post" class="d-inline">
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="confirm('Do you want to delete this?')?this.parentElement.submit():null;">Delete</a>
+    </form>
     {% endfor %}
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="/board.js"></script>

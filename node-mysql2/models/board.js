@@ -25,7 +25,7 @@ module.exports = class Board extends Sequelize.Model {
             unique: true,
         },
         created_at: {
-            type: Sequelize.DATE,
+            type: Sequelize.DATEONLY,
             allowNull: false,
             defaultValue: Sequelize.NOW,
         },

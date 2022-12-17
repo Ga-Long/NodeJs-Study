@@ -54,7 +54,7 @@ router.get('/:id', async (req, res, next) => { //해당 id의 content 불러오�
         const boards = await Board.findAll({
             where: { id: req.params.id },
         });
-
+        await Board.increment({views:1},{where: { id: req.params.id }}) //클릭하면 1씩 증가
         res.render('eachPost',{boards}) //해당 데이터를 each.html를 렌더링할 때 넘김
         
     } catch (err) {

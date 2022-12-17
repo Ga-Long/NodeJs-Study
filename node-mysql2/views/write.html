@@ -13,15 +13,15 @@
     <h2><a href="/">Main Page</a></h2>
     <hr>
 
-    <form method = "post" action="/board" name="write-form">
+    <form method = "post" action="/board/write" name="write-form">
         <fieldset>
             <legend>게시판 등록</legend>
             <div>
-                <!-- <select name ="divison">
+                <select name ="division">
                     <option value="공지사항" selected>공지사항</option>
                     <option value="취업 및 연수">취업 및 연수</option>
-                </select> -->
-                <input name="division" type="text" placeholder="구분"></div>
+                </select>
+                <!-- <input name="division" type="text" placeholder="구분"></div> -->
             </div>
             <div><input name="title" type="text" placeholder="제목"></div>
             <div><input name="content" type="text" placeholder="내용"></div>

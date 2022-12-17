@@ -16,7 +16,7 @@ router.get('/board', async (req, res, next) => { // /board 진입했을 때
 });
 
 //write
-router.post('/board', async (req, res, next) => { //글 작성 후 post
+router.post('/board/write', async (req, res, next) => { //글 작성 후 post
     try {
         const board = await Board.create({
             division: req.body.division,

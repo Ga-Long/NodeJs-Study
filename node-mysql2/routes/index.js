@@ -24,23 +24,24 @@ router.get('/board', async (req, res, next) => { // /board 진입했을 때
     }
 });
 
-router.post('/board', async (req, res, next) => { //글 작성 후 post
+router.post('/board/write', async (req, res, next) => { //글 작성 후 렌더링 post
     try {
-        const board = await Board.create({
-            division: req.body.division,
-            title: req.body.title,
-            content: req.body.content,
-            writer: req.body.writer,
-        });
-        //res.status(201).json(board);
-        res.render('board', { board }); //작성하고 게시판으로 돌아가기
+        Board.create({ //글 작성한 것 생성하고 
+                division: req.body.division,
+                title: req.body.title,
+                content: req.body.content,
+                writer: req.body.writer,
+            })
+            .then(result=>{
+                res.redirect('board'); //게시판으로 redirect
+            })
     } catch (err) {
         console.error(err);
         next(err);
     }
 });   
-//글 작성
-router.get('/write', async (req, res, next) => {
+//글 작성 페이지로
+router.get('/board/write', async (req, res, next) => {
     try {
         res.render('write', {  });
     } catch (err) {

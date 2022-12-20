@@ -1,0 +1,35 @@
+@import url('https://rsms.me/inter/inter.css');
+
+html, body {
+    font-family: 'Inter', sans-serif;
+    margin: 0% 20% 0% 20%; 
+    padding: 0px;
+}
+
+.navebar{
+    margin-bottom: 5%;
+}
+
+.fullNews, .EducationGoals, .History, .Location{
+    font-size : 12px;
+    color: #828282;
+    font-style: normal;
+}
+
+
+.page{
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 14px;
+    color: #000000;
+}
+
+.Greetings:hover, .EducationGoals:hover, .History:hover, .Location:hover{
+    font-size : 12px;
+    color: #004DC1;
+    font-style: normal;
+    text-decoration: underline;
+    text-underline-position : under;
+    text-decoration-color:#004DC1;
+    cursor: pointer;
+}

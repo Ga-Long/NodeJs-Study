@@ -1,0 +1,37 @@
+.fullNews{
+    font-size : 12px;
+    color: #004DC1;
+    font-style: normal;
+    text-decoration: underline;
+    text-underline-position : under;
+    text-decoration-color:#004DC1;
+}
+.page{
+    font-size: 20px;
+    padding:3%
+}
+.writePostbox{
+    border-bottom:solid;
+    padding:1%;
+}
+.writebox{
+    
+    text-align:center;
+    margin-right:auto;
+    margin-left:auto;
+   
+}
+.writeboxin{
+    margin-bottom: 2%;
+}
+.itemsbox{
+    border-bottom: 0.7px solid #E3E3E3;
+}
+.items-line{
+    justify-content: space-between;
+    margin:2%;
+    display:flex;
+}
+.items-style{
+    font-weight: bold;
+}

@@ -1,0 +1,57 @@
+.fullNews{
+    font-size : 12px;
+    color: #004DC1;
+    font-style: normal;
+    text-decoration: underline;
+    text-underline-position : under;
+    text-decoration-color:#004DC1;
+}
+.page{
+    font-size: 20px;
+    padding:3%
+}
+
+.searchbox{
+    max-width: 800px;
+    width:100%;
+    height: 100px;
+    text-align:center;
+    margin-right:auto;
+    margin-left:auto;
+    background: rgba(233, 233, 233, 1);
+    padding-top:40px;
+}
+
+.searchInbox{
+    max-width: 500px;
+    width:80%;
+    height: 30px;
+    margin-right:auto;
+    margin-left:auto;
+}
+
+.searchName{
+    float:left;
+}
+
+.search{
+    float:right
+}
+
+.postTable{
+    max-width: 800px;
+    width:100%;
+    height: 100px;
+    text-align:center;
+    margin-right:auto;
+    margin-left:auto;
+    padding-top:3%;
+}
+
+.tableMenu{
+    border-top: 2px solid #444444;
+}
+
+.titleMenu{
+    width:50%;
+}

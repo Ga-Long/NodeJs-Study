@@ -6,6 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Write</title>
+    <script>
+        function WriteCheck(){
+            theForm = document.writeForm;
+            if(theForm.title.value==""){
+                alert("제목을 입력하세요.");
+                theForm.title.focus();
+                return false;
+            }
+            if(theForm.content.value==""){
+                alert("내용을 입력하세요.");
+                theForm.content.focus();
+                return false;
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -13,7 +28,7 @@
     <h2><a href="/">Main Page</a></h2>
     <hr>
 
-    <form method = "post" action="/board/write" name="write-form">
+    <form method = "post" action="/board/write" name="writeForm" onsubmit="return WriteCheck()">
         <fieldset>
             <legend>게시판 등록</legend>
             <div>
@@ -21,7 +36,6 @@
                     <option value="공지사항" selected>공지사항</option>
                     <option value="취업 및 연수">취업 및 연수</option>
                 </select>
-                <!-- <input name="division" type="text" placeholder="구분"></div> -->
             </div>
             <div><input name="title" type="text" placeholder="제목"></div>
             <div><input name="content" type="text" placeholder="내용"></div>

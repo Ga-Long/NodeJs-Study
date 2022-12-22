@@ -38,7 +38,7 @@
                 <td>{{board.writer}}</td>
                 <td>{{board.created_at}}</td>
                 <td>{{board.views}}</td>
-                <td>{{ 'o' if board.isFile else 'x'}}</td>
+                <td>{{ 'x' if board.isFile==NULL else 'o'}}</td>
             </tr>
             {% endfor %}
         </tbody>

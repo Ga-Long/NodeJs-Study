@@ -35,7 +35,7 @@ module.exports = class Board extends Sequelize.Model {
             unique: true,
         },
         isFile: {
-            type:Sequelize.BOOLEAN,
+            type:Sequelize.STRING(200),
             allowNull:true,
             unique : false,
         },

@@ -16,22 +16,22 @@ router.get('/board', async (req, res, next) => { // /board 진입했을 때
 });
 
 //write
-router.post('/board/write', async (req, res, next) => { //글 작성 후 post
-    try {
-        const board = await Board.create({
-            division: req.body.division,
-            title: req.body.title,
-            content: req.body.content,
-            writer: req.body.writer,
-        });
-        console.log(board);
-        //res.status(201).json(board);
-        res.render('board', { board }); //작성하고 게시판으로 돌아가기
-    } catch (err) {
-        console.error(err);
-        next(err);
-    }
-});    
+// router.post('/board/write', async (req, res, next) => { //글 작성 후 post
+//     try {
+//         const board = await Board.create({
+//             division: req.body.division,
+//             title: req.body.title,
+//             content: req.body.content,
+//             writer: req.body.writer,
+//         });
+//         console.log(board);
+//         //res.status(201).json(board);
+//         res.render('board', { board }); //작성하고 게시판으로 돌아가기
+//     } catch (err) {
+//         console.error(err);
+//         next(err);
+//     }
+// });    
 
 
 //해당 content 보기 

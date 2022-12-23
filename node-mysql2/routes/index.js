@@ -1,5 +1,7 @@
 const express = require('express');
 const Board = require('../models/board');
+const multer = require("multer");
+const path = require("path");
 
 const router = express.Router();
 
@@ -24,13 +26,31 @@ router.get('/board', async (req, res, next) => { // /board 진입했을 때
     }
 });
 
-router.post('/board/write', async (req, res, next) => { //글 작성 후 렌더링 post
+var storage = multer.diskStorage({
+    destination : function(req,file,cb){
+        cb(null,"public/files/");
+    },
+    filename:function(req,file,cb){
+        const ext = path.extname(file.originalname);
+        cb(null,path.basename(file.originalname,ext)+"-"+Date.now()+ext);
+    },
+});
+var upload=multer({storage:storage});
+
+
+
+//글 작성
+router.post('/board/write', upload.single("isFile"), async (req, res, next) => { //글 작성 후 렌더링 post
     try {
+        console.log(req.file.filename);
+        const file = `/files/${req.file.filename}`;
+        console.log(file);
         Board.create({ //글 작성한 것 생성하고 
                 division: req.body.division,
                 title: req.body.title,
                 content: req.body.content,
                 writer: req.body.writer,
+                isFile : file,
             })
             .then(result=>{
                 res.redirect('board'); //게시판으로 redirect
